@@ -1,25 +1,2 @@
-package com.ps.user.service.exception;
-
-
-import com.ps.user.service.payload.response.ExceptionResponse;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
-
-import java.time.LocalDateTime;
-
-@ControllerAdvice
-public class GlobalExceptionHandler {
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ExceptionResponse> ExceptionHandler(Exception ex, WebRequest req) {
-        ExceptionResponse response= new ExceptionResponse(
-                ex.getMessage(),
-                req.getDescription(false),
-                LocalDateTime.now()
-        );
-        return  ResponseEntity.ok(response);
-    }
-
+package com.ps.user.service.exception;public class GlobalExceptionHandler {
 }
