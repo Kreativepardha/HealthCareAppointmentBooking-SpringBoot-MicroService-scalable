@@ -12,9 +12,13 @@ public class UserRequestDTO {
 
     @NotBlank(message = "Full name is required")
     private String fullName;
+
     @Email(message = "Invalid Email Format")
     @NotBlank(message = "Email is required")
     private String email;
+
+    @NotBlank(message = "Password is required")
+    private String password;
     private String phone;
-    private String Role;
+    private String role;
 }

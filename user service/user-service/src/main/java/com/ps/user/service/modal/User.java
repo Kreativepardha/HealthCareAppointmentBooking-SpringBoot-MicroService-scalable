@@ -18,15 +18,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = "Full Name is required")
+    @Column(nullable = false)
     private String fullName;
 
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     private String phone;
 
     private LocalDateTime createdAt;
